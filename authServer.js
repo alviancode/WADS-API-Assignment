@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 
+
 //Extended: https://swagger.io/specification/#infoObject
 const definition = {
 
@@ -20,15 +21,17 @@ const definition = {
   servers: ["http://localhost:4000"],
 };
 
+
 const options = {
   definition,
   apis: ["authServer.js"]
 }
 
+
 const swaggerDocs = swaggerJsDoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
 app.use(express.json())
+
 
 let refreshTokens = []
 
@@ -77,10 +80,6 @@ const users = [
 ]
 
 
-
-
-
-
 // Routes
 /**
  * @swagger
@@ -97,8 +96,6 @@ const users = [
  *        200:
  *          description: Created
  */
-
-
 
 app.post('/login', (req, res) => {
   // Authenticate User
@@ -149,7 +146,6 @@ app.post('/token', (req, res) => {
 })
 
 
-
 /**
  * @swagger
  * /logout:
@@ -170,9 +166,6 @@ app.delete('/logout', (req, res) => {
   refreshTokens = refreshTokens.filter(token => token !== req.body.token)
   res.sendStatus(204)
 })
-
-
-
 
 
 /**
@@ -202,10 +195,6 @@ app.get('/posts', authenticateToken, (req, res) => {
 })
 
 
-
-
-
-
 /**
  * @swagger
  * /venues:
@@ -233,7 +222,6 @@ app.get('/venues', authenticateToken, (req, res) => {
 })
 
 
-
 /**
  * @swagger
  * /newuser:
@@ -259,7 +247,6 @@ app.post('/newuser', (req, res) => {
   console.log(users)
   return res.sendStatus(201);
 })
-
 
 
 /**
@@ -296,8 +283,6 @@ app.post('/newvenue', authenticateToken, (req, res) => {
   console.log(venues)
   return res.sendStatus(201);
 })
-
-
 
 
 /**
@@ -337,7 +322,6 @@ app.post('/newpost', authenticateToken, (req, res) => {
 
   return res.sendStatus(201)
 })
-
 
 
 /**
@@ -408,6 +392,7 @@ app.put('/post/:id', authenticateToken, (req, res) => {
  *        201:
  *          description: Created
  */
+
 app.put('/user/:username', authenticateToken, (req, res) => {
   const username = req.user.name
   const password = req.body.password
@@ -513,7 +498,6 @@ app.delete('/post/:id', authenticateToken, (req, res) => {
 })
 
 
-
 /**
  * @swagger
  * /venues/:id:
@@ -553,18 +537,6 @@ app.delete('/venues/:id', authenticateToken, (req, res) => {
   }
   return res.sendStatus(404)
 })
-
-
-
-console.log(venues)
-
-
-
-
-
-
-
-
 
 
 function authenticateToken(req, res, next) {

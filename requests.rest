@@ -1,0 +1,129 @@
+
+//get value
+GET http://localhost:4000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTM2MTc5LCJleHAiOjE2MjAxMzY3Nzl9.sKQrS5pmw-DXUFGzaA-aE4Ot05zUSFoBYGM41qdKVHs
+
+###
+DELETE http://localhost:4000/venues/:id
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTM2MTc5LCJleHAiOjE2MjAxMzY3Nzl9.sKQrS5pmw-DXUFGzaA-aE4Ot05zUSFoBYGM41qdKVHs
+
+{
+  "venueId" : "2"
+}
+
+
+###
+
+PUT http://localhost:4000/user/:username
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTI3ODUxLCJleHAiOjE2MjAxMjg0NTF9.Tv34YftfXla8eTc3immzHdU7hdJiQ9lx6uDnIrqskdY
+
+{
+  "password" : "0000"
+}
+
+
+###
+
+
+//logout/delete token
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjE5NTEwNTEzfQ.Irh5OJEmPE6pwxEQjQgsSljFrvPZrwevvpW2wbmw5VA"
+}
+
+###
+
+
+//Generate refresh token
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMDUzNTQ3LCJleHAiOjE2MjAwNTQxNDd9.OIR8FNfP5dINkAVUukdjk-ARYICjPmWQ_cnqON4iQe0"
+}
+
+###
+//Show all venues
+GET http://localhost:4000/venues
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMDU2ODA5LCJleHAiOjE2MjAwNTc0MDl9.pvJfVCVWsH9etPWEBkGcCzcv3yHp4HYmo1zj-IhJxvY
+
+###
+POST http://localhost:4000/newuser
+Content-Type: application/json
+
+{
+  "username": "anatoly",
+  "password": "4321"
+}
+
+###
+POST http://localhost:4000/newpost
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTExNDk5LCJleHAiOjE2MjAxMTIwOTl9.2GtKR7IJeghvHQmSw1MUASbQmod8VBtHyz9u_EW2cgs
+Content-Type: application/json
+
+{
+  "postId" : 5,
+  "venueId" : 1,
+  "title" : "Post 4"
+}
+
+
+###
+POST http://localhost:4000/newvenue
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTM0MDYyLCJleHAiOjE2MjAxMzQ2NjJ9.v_IKugmECcNT0A1xEYbEbnZbPoun2BWVD1V3-9P8Dmg
+Content-Type: application/json
+
+{
+  "venueId" : 99,
+  "venueName" : "Kebayoran",
+  "address" : "Kebayoran Lama"
+}
+
+###
+
+PUT http://localhost:4000/venues/:id
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTI4NzA4LCJleHAiOjE2MjAxMjkzMDh9.JRueYrKOBDEVt0y5n0XWhYcFShNAdyJB_rHjpL-uBx8
+Content-Type: application/json
+
+{
+  "venueId" : 1,
+  "venueName" : "Taipei",
+  "address" : "Hualien Disctric"
+}
+
+###
+
+PUT http://localhost:4000/post/:id
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTMyNTk5LCJleHAiOjE2MjAxMzMxOTl9.qpyS_yHOLZop64OZhOiOzPT3J3R9JeidXQPmb5d61Vo
+Content-Type: application/json
+
+{
+  "postId" : 3,
+  "venueId" : "3",
+  "title" : "Hualien Disctric"
+}
+
+###
+DELETE http://localhost:4000/post/:id
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWx2d2p5IiwiaWF0IjoxNjIwMTMzMTkwLCJleHAiOjE2MjAxMzM3OTB9.8cHz-Ew7HsEgEIY4SsuKNGfKdUdjxbcIysmHT5jsj8s
+Content-Type: application/json
+
+{
+  "postId" : 1
+}
+
+
+###
+
+// login/ create new token
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "username": "alvwjy",
+  "password": "1234"
+}

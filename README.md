@@ -1,2 +1,1 @@
-Install all dependencies {Check package.json}
-"\n" to run file: npm run
+Install all dependencies {Check package.json}. To run file: npm run
